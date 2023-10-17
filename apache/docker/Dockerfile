@@ -49,6 +49,8 @@ COPY ./files/sshd_config /etc/ssh/sshd_config
 
 RUN sudo -u www-data composer create-project --no-dev oxid-esales/oxideshop-project . dev-b-7.0-ce
 
+RUN chmod -R 777 /var/www/html
+
 # EXECUTED ON EVERY START
 ENTRYPOINT ["/init_script.sh"]
 
