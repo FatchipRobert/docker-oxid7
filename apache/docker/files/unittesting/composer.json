@@ -1,0 +1,82 @@
+{
+  "name": "oxid-esales/oxideshop-project",
+  "type": "project",
+  "description": "This file should be used as an OXID eShop project root composer.json file. Entries provided here intended to be examples and could be changed to your specific needs.",
+  "license": "proprietary",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "oxid-esales/oxideshop-metapackage-ce": "v7.0.0",
+    "oxid-esales/developer-tools": "^2.3",
+    "oxid-solution-catalysts-dev/paypal-module": "@dev"
+  },
+  "require-dev": {
+    "codeception/codeception": "^5.0",
+    "codeception/module-asserts": "^3.0",
+    "codeception/module-db": "^3.0",
+    "codeception/module-filesystem": "^3.0",
+    "codeception/module-webdriver": "^3.1",
+    "composer/composer": "^2.0",
+    "incenteev/composer-parameter-handler": "^v2.1.4",
+    "mikey179/vfsstream": "~1.6.8",
+    "oxid-esales/codeception-modules": "^v3.1.0",
+    "oxid-esales/codeception-page-objects": "^v4.1.0",
+    "oxid-esales/developer-tools": "^v2.3.0",
+    "oxid-esales/oxideshop-ide-helper": "^v6.1.0",
+    "phpspec/prophecy-phpunit": "^v2.0.1",
+    "phpunit/phpunit": "^9.1.1",
+    "squizlabs/php_codesniffer": "^3.5.4",
+    "vimeo/psalm": "^4.4.1",
+    "oxid-esales/testing-library": "dev-b-7.0.x",
+    "incenteev/composer-parameter-handler": "~2.0",
+    "codeception/module-rest": "^3.3.1",
+    "codeception/module-phpbrowser": "^3.0.0",
+    "phpmd/phpmd": "^2.11",
+    "symfony/dotenv": "^5.1",
+    "phpstan/phpstan": "^1.10"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+    ],
+    "post-update-cmd": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+    ]
+  },
+  "extra": {
+    "incenteev-parameters": {
+      "file": "test_config.yml",
+      "dist-file": "vendor/oxid-esales/testing-library/test_config.yml.dist",
+      "parameter-key": "mandatory_parameters",
+      "env-map": {
+        "shop_path": "SHOP_PATH",
+        "shop_tests_path": "SHOP_TESTS_PATH",
+        "module_ids": "MODULE_IDS"
+      }
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "OxidEsales\\EshopCommunity\\Tests\\": "./vendor/oxid-esales/oxideshop-ce/tests"
+    }
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "allow-plugins": {
+      "oxid-esales/oxideshop-composer-plugin": true,
+      "oxid-esales/oxideshop-unified-namespace-generator": true
+    }
+  },
+  "repositories": {
+    "oscpaypal": {
+      "type": "composer",
+      "url": "https://paypal-module.packages.oxid-esales.com/"
+    },
+    "0": {
+      "type": "path",
+      "url": "vendor/oxid-solution-catalysts-dev/paypal-module"
+    }
+  }
+}

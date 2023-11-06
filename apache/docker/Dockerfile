@@ -42,6 +42,9 @@ RUN chmod 777 /init_script.sh # && chmod 777 /init_script.d/*
 # fix windows line endings if needed
 RUN dos2unix /init_script.sh
 
+RUN mkdir /unittesting
+COPY ./files/unittesting/ /unittesting/
+
 # apache stuff
 RUN /usr/sbin/a2enmod rewrite && /usr/sbin/a2enmod headers && /usr/sbin/a2enmod expires && /usr/sbin/a2enmod ssl
 COPY ./files/000-default.conf /etc/apache2/sites-available/000-default.conf
