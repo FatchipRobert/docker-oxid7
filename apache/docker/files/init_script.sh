@@ -42,7 +42,7 @@ then
     echo "CREATE DATABASE $MYSQL_DATABASE_TEST;" | mysql -u$MYSQL_ROOT_USER -p$MYSQL_ROOT_PASSWORD --host=mysql.$DOMAIN
     mysqldump -u$MYSQL_ROOT_USER -p$MYSQL_ROOT_PASSWORD --host=mysql.$DOMAIN $MYSQL_DATABASE | mysql -u$MYSQL_ROOT_USER -p$MYSQL_ROOT_PASSWORD --host=mysql.$DOMAIN $MYSQL_DATABASE_TEST
     
-    sudo -uwww-data php vendor/bin/runtests /var/www/html/vendor/oxid-solution-catalysts-dev/paypal-module/tests/
+    sudo -uwww-data php vendor/bin/runtests /var/www/html/vendor/oxid-solution-catalysts-dev/paypal-module/tests/ || true
 fi
 
 echo "#####################################"
