@@ -16,12 +16,12 @@ then
 
     echo "MYSQL SERVER IS UP!"
 
-    php /var/www/html/vendor/bin/oe-console oe:setup:shop --db-host=mysql.localhost --db-port=3306 --db-name=$MYSQL_DATABASE --db-user=$MYSQL_USER --db-password=$MYSQL_PASSWORD --shop-url=https://$DOMAIN --shop-directory=/var/www/html/source --compile-directory=/var/www/html/source/tmp --language=de
-    php /var/www/html/vendor/bin/oe-console oe:setup:demodata
-    php /var/www/html/vendor/bin/oe-console oe:admin:create-user --admin-email=$OXID_ADMIN_USER --admin-password=$OXID_ADMIN_PASSWORD
+    sudo -u www-data php /var/www/html/vendor/bin/oe-console oe:setup:shop --db-host=mysql.localhost --db-port=3306 --db-name=$MYSQL_DATABASE --db-user=$MYSQL_USER --db-password=$MYSQL_PASSWORD --shop-url=https://$DOMAIN --shop-directory=/var/www/html/source --compile-directory=/var/www/html/source/tmp --language=de
+    sudo -u www-data php /var/www/html/vendor/bin/oe-console oe:setup:demodata
+    sudo -u www-data php /var/www/html/vendor/bin/oe-console oe:admin:create-user --admin-email=$OXID_ADMIN_USER --admin-password=$OXID_ADMIN_PASSWORD
 
-    composer require oxid-esales/developer-tools
-    vendor/bin/oe-console oe:theme:activate apex
+    sudo -u www-data composer require oxid-esales/developer-tools
+    sudo -u www-data vendor/bin/oe-console oe:theme:activate apex
 fi
 
 echo "#####################################"
